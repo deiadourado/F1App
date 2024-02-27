@@ -19,6 +19,8 @@ public class App extends Application {
         MainController controller = loader.getController();
 
         Scene scene = new Scene(root);
+        // Carregue o arquivo CSS
+        scene.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
         stage.setScene(scene);
         stage.setTitle("F1 Best Drivers Application");
         stage.show();
@@ -28,3 +30,4 @@ public class App extends Application {
         launch(args);
     }
 }
+

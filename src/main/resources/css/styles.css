@@ -1,8 +1,10 @@
 /* Estilo para a aplicação F1 Best Drivers */
 .root {
-    -fx-background-image: url('caminho/para/sua/imagem.jpg');
-    -fx-background-size: cover;
+    -fx-background-image: url("https://64.media.tumblr.com/f13ce570ca1498bb37fdc4075d6b3f23/66b4306fe2fe3f02-b0/s1280x1920/cba9214704d23d9f194fd50d43847e431c5c8945.jpg");
     -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: cover;
+    -fx-width:100%;
 }
 
 /* Estilo para o título da aplicação */
@@ -27,7 +29,7 @@
 
 /* Estilo para os elementos do BarChart */
 .chart {
-    -fx-background-color: #ffffff; /* Branco */
+    -fx-background-color: transparent; /* Transparente */
 }
 
 /* Estilo para as linhas do gráfico */

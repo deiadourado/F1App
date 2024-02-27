@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.fxml.FXML?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" spacing="10">
+    <TableView fx:id="tableView" prefWidth="600" prefHeight="400"/>
+</VBox>

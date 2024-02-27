@@ -1,20 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.fxml.FXML?>
 
 <VBox xmlns:fx="http://javafx.com/fxml/1" spacing="10" fx:controller="org.example.f1app.MainController">
-  <BarChart fx:id="barChart" prefWidth="600" prefHeight="400">
-    <xAxis>
-      <CategoryAxis fx:id="xAxis"/>
-    </xAxis>
-    <yAxis>
-      <NumberAxis fx:id="yAxis"/>
-    </yAxis>
-  </BarChart>
-  <TableView fx:id="tableView" prefWidth="600" prefHeight="400"/>
+    <HBox spacing="10">
+        <!-- Botão para alternar entre gráfico e TableView -->
+        <Button text="Show Table" onAction="#showTable"/>
+        <Button text="Show Chart" onAction="#showChart"/>
+    </HBox>
+    <!-- Contêiner para gráfico de barras e TableView -->
+    <StackPane>
+        <!-- Gráfico de barras -->
+        <BarChart fx:id="barChart" prefWidth="600" prefHeight="400" visible="false">
+            <xAxis>
+                <CategoryAxis fx:id="xAxis"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis fx:id="yAxis"/>
+            </yAxis>
+        </BarChart>
+        <!-- TableView -->
+        <TableView fx:id="tableView" prefWidth="600" prefHeight="400" visible="false"/>
+    </StackPane>
 </VBox>
