@@ -1,0 +1,52 @@
+/* Estilo para a aplicação F1 Best Drivers */
+.root {
+    -fx-background-image: url('caminho/para/sua/imagem.jpg');
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}
+
+/* Estilo para o título da aplicação */
+#title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ff2800; /* Vermelho */
+    -fx-padding: 20px;
+}
+
+/* Estilo para os elementos da TableView */
+.table-view {
+    -fx-background-color: #000000; /* Preto */
+    -fx-text-fill: #ffffff; /* Branco */
+}
+
+/* Estilo para as células da TableView */
+.table-cell {
+    -fx-border-color: #ff2800; /* Vermelho */
+    -fx-border-width: 0.5px;
+}
+
+/* Estilo para os elementos do BarChart */
+.chart {
+    -fx-background-color: #ffffff; /* Branco */
+}
+
+/* Estilo para as linhas do gráfico */
+.chart-series-line {
+    -fx-stroke: #ff2800; /* Vermelho */
+}
+
+/* Estilo para as bordas do gráfico */
+.chart-vertical-grid-lines,
+.chart-horizontal-grid-lines {
+    -fx-stroke: #000000; /* Preto */
+}
+
+/* Estilo para as legendas do gráfico */
+.chart-legend {
+    -fx-background-color: #ffffff; /* Branco */
+}
+
+/* Estilo para os rótulos dos eixos X e Y do gráfico */
+.chart-axis {
+    -fx-tick-label-fill: #000000; /* Preto */
+}

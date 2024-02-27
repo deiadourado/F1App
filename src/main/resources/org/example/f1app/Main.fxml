@@ -5,8 +5,9 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.fxml.FXML?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" spacing="10">
+<VBox xmlns:fx="http://javafx.com/fxml/1" spacing="10" fx:controller="org.example.f1app.MainController">
   <BarChart fx:id="barChart" prefWidth="600" prefHeight="400">
     <xAxis>
       <CategoryAxis fx:id="xAxis"/>

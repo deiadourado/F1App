@@ -9,6 +9,16 @@ public class DatabaseController {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "153276";
 
+    static {
+        try {
+            // Carregar o driver JDBC do MySQL
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.err.println("Erro ao carregar o driver JDBC do MySQL: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USERNAME, PASSWORD);
     }
