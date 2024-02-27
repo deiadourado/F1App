@@ -2,11 +2,9 @@ package org.example.f1app;
 
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.Connection;
@@ -80,5 +78,19 @@ public class MainController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    // Método para exibir a TableView e ocultar o BarChart
+    @FXML
+    public void showTable() {
+        tableView.setVisible(true);
+        barChart.setVisible(false);
+    }
+
+    // Método para exibir o BarChart e ocultar a TableView
+    @FXML
+    public void showChart() {
+        tableView.setVisible(false);
+        barChart.setVisible(true);
     }
 }
