@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
@@ -11,14 +12,17 @@
 <?import javafx.fxml.FXML?>
 
 <VBox xmlns:fx="http://javafx.com/fxml/1" spacing="10" fx:controller="org.example.f1app.MainController">
+    <!-- Horizontal box for buttons and ComboBox -->
     <HBox spacing="10">
-        <!-- Botão para alternar entre gráfico e TableView -->
+        <!-- Button to switch between TableView and BarChart -->
         <Button text="Show Table" onAction="#showTable"/>
         <Button text="Show Chart" onAction="#showChart"/>
+        <!-- ComboBox to select data for the chart -->
+        <ComboBox fx:id="dataSelectionComboBox" onAction="#handleDataSelection" />
     </HBox>
-    <!-- Contêiner para gráfico de barras e TableView -->
+    <!-- StackPane for BarChart and TableView -->
     <StackPane>
-        <!-- Gráfico de barras -->
+        <!-- BarChart -->
         <BarChart fx:id="barChart" prefWidth="600" prefHeight="400" visible="false">
             <xAxis>
                 <CategoryAxis fx:id="xAxis"/>

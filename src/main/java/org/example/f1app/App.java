@@ -12,22 +12,30 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
-        Parent root = loader.load();
+        try {
+            // Load the FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
+            Parent root = loader.load();
 
-        // Obtenha o controlador do arquivo FXML
-        MainController controller = loader.getController();
+            // Get the controller from the FXML file
+            MainController controller = loader.getController();
 
-        Scene scene = new Scene(root);
-        // Carregue o arquivo CSS
-        scene.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
-        stage.setScene(scene);
-        stage.setTitle("F1 Best Drivers Application");
-        stage.show();
+            // Create a new scene
+            Scene scene = new Scene(root);
+
+            // Load the CSS file
+            scene.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
+
+            // Set the scene to the stage
+            stage.setScene(scene);
+            stage.setTitle("F1 Best Drivers Application");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
         launch(args);
     }
 }
-

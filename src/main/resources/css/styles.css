@@ -17,7 +17,7 @@
 
 /* Estilo para os elementos da TableView */
 .table-view {
-    -fx-background-color: #000000; /* Preto */
+    -fx-background-color: #00000000; /* Preto */
     -fx-text-fill: #ffffff; /* Branco */
 }
 
@@ -34,7 +34,7 @@
 
 /* Estilo para as linhas do gráfico */
 .chart-series-line {
-    -fx-stroke: #ff2800; /* Vermelho */
+    -fx-stroke: #ff260025; /* Vermelho */
 }
 
 /* Estilo para as bordas do gráfico */
