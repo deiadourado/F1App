@@ -3,52 +3,67 @@ package org.example.f1app;
 import javafx.beans.property.*;
 
 public class DriverData {
-    private final StringProperty driver;
-    private final IntegerProperty numberWins;
-    private final IntegerProperty worldChampionships;
-    private final IntegerProperty numberRaces;
+    private String driver;
+    private int worldChampionships;
+    private int numberRaces;
+    private int numberWins;
+    private int polePositions;
+    private double careerPoints;
 
-    public DriverData(String driver, int numberWins, int worldChampionships, int numberRaces) {
-        this.driver = new SimpleStringProperty(driver);
-        this.numberWins = new SimpleIntegerProperty(numberWins);
-        this.worldChampionships = new SimpleIntegerProperty(worldChampionships);
-        this.numberRaces = new SimpleIntegerProperty(numberRaces);
+    public DriverData(String driver, int worldChampionships, int numberRaces, int numberWins, int polePositions, double careerPoints) {
+        this.driver = driver;
+        this.worldChampionships = worldChampionships;
+        this.numberRaces = numberRaces;
+        this.numberWins = numberWins;
+        this.polePositions = polePositions;
+        this.careerPoints = careerPoints;
     }
 
-    // Getters for driver
     public String getDriver() {
-        return driver.get();
-    }
-
-    public StringProperty driverProperty() {
         return driver;
     }
 
-    // Getters for numberWins
-    public int getNumberWins() {
-        return numberWins.get();
+    public void setDriver(String driver) {
+        this.driver = driver;
     }
 
-    public IntegerProperty numberWinsProperty() {
-        return numberWins;
-    }
-
-    // Getters for worldChampionships
     public int getWorldChampionships() {
-        return worldChampionships.get();
-    }
-
-    public IntegerProperty worldChampionshipsProperty() {
         return worldChampionships;
     }
 
-    // Getters for numberRaces
-    public int getNumberRaces() {
-        return numberRaces.get();
+    public void setWorldChampionships(int worldChampionships) {
+        this.worldChampionships = worldChampionships;
     }
 
-    public IntegerProperty numberRacesProperty() {
+    public int getNumberRaces() {
         return numberRaces;
     }
-}
 
+    public void setNumberRaces(int numberRaces) {
+        this.numberRaces = numberRaces;
+    }
+
+    public int getNumberWins() {
+        return numberWins;
+    }
+
+    public void setNumberWins(int numberWins) {
+        this.numberWins = numberWins;
+    }
+
+    public int getPolePositions() {
+        return polePositions;
+    }
+
+    public void setPolePositions(int polePositions) {
+        this.polePositions = polePositions;
+    }
+
+    public double getCareerPoints() {
+        return careerPoints;
+    }
+
+    public void setCareerPoints(double careerPoints) {
+        this.careerPoints = careerPoints;
+    }
+}

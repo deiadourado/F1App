@@ -42,16 +42,22 @@ public class MainController {
         TableColumn<DriverData, String> driverColumn = new TableColumn<>("Driver");
         driverColumn.setCellValueFactory(new PropertyValueFactory<>("driver"));
 
-        TableColumn<DriverData, Integer> winsColumn = new TableColumn<>("Wins");
-        winsColumn.setCellValueFactory(new PropertyValueFactory<>("numberWins"));
-
         TableColumn<DriverData, Integer> worldChampionshipsColumn = new TableColumn<>("World Championships");
         worldChampionshipsColumn.setCellValueFactory(new PropertyValueFactory<>("worldChampionships"));
 
         TableColumn<DriverData, Integer> numberRacesColumn = new TableColumn<>("Number of Races");
         numberRacesColumn.setCellValueFactory(new PropertyValueFactory<>("numberRaces"));
 
-        tableView.getColumns().addAll(driverColumn, winsColumn, worldChampionshipsColumn, numberRacesColumn);
+        TableColumn<DriverData, Integer> numberWinsColumn = new TableColumn<>("Number of Wins");
+        numberWinsColumn.setCellValueFactory(new PropertyValueFactory<>("numberWins"));
+
+        TableColumn<DriverData, Integer> polePositionsColumn = new TableColumn<>("Pole Positions");
+        polePositionsColumn.setCellValueFactory(new PropertyValueFactory<>("polePositions"));
+
+        TableColumn<DriverData, Double> careerPointsColumn = new TableColumn<>("Career Points");
+        careerPointsColumn.setCellValueFactory(new PropertyValueFactory<>("careerPoints"));
+
+        tableView.getColumns().addAll(driverColumn, worldChampionshipsColumn, numberRacesColumn, numberWinsColumn, polePositionsColumn, careerPointsColumn);
     }
 
     private void populateTableView() {
@@ -67,8 +73,10 @@ public class MainController {
                 int numberWins = resultSet.getInt("numberWins");
                 int worldChampionships = resultSet.getInt("worldChampionships");
                 int numberRaces = resultSet.getInt("numberRaces");
+                int polePositions = resultSet.getInt("polePositions");
+                double careerPoints = resultSet.getDouble("careerPoints");
 
-                dataList.add(new DriverData(driver, numberWins, worldChampionships, numberRaces));
+                dataList.add(new DriverData(driver, worldChampionships, numberRaces, numberWins, polePositions, careerPoints));
             }
 
             tableView.getItems().addAll(dataList);
@@ -80,12 +88,14 @@ public class MainController {
     private void configureComboBox() {
         ObservableList<String> options =
                 FXCollections.observableArrayList(
-                        "Wins",
                         "World Championships",
-                        "Number of Races"
+                        "Number of Races",
+                        "Number of Wins",
+                        "Pole Positions",
+                        "Career Points"
                 );
         dataSelectionComboBox.setItems(options);
-        dataSelectionComboBox.setValue("Wins"); // Definir valor padrão
+        dataSelectionComboBox.setValue("World Championships"); // Definir valor padrão
         dataSelectionComboBox.setOnAction(event -> {
             populateChartData();
             handleDataSelection();
@@ -94,24 +104,26 @@ public class MainController {
 
     private void populateChartData() {
         barChart.getData().clear();
-    
-        try (Connection connection = DatabaseController.getConnection()) {
-            String selectedData = dataSelectionComboBox.getValue();
-            String query = "SELECT driver, numberWins, worldChampionships, numberRaces FROM BestDrivers";
-    
-            try (PreparedStatement statement = connection.prepareStatement(query);
-                 ResultSet resultSet = statement.executeQuery()) {
-    
-                XYChart.Series<String, Number> series = new XYChart.Series<>();
-                while (resultSet.next()) {
-                    String driver = resultSet.getString("driver");
-                    int dataValue = resultSet.getInt(selectedData.toLowerCase() + "Championships");
-    
-                    series.getData().add(new XYChart.Data<>(driver, dataValue));
-                }
-    
-                barChart.getData().add(series);
+
+        String selectedData = dataSelectionComboBox.getValue();
+        String columnName = selectedData.toLowerCase().replace(" ", ""); // Remova espaços e converta para minúsculas
+
+        String query = "SELECT driver, " + columnName + " FROM BestDrivers";
+
+        try (Connection connection = DatabaseController.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+
+            XYChart.Series<String, Number> series = new XYChart.Series<>();
+            while (resultSet.next()) {
+                String driver = resultSet.getString("driver");
+                Number dataValue = resultSet.getDouble(columnName);
+
+                series.getData().add(new XYChart.Data<>(driver, dataValue));
             }
+
+            barChart.getData().add(series);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
