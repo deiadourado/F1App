@@ -1,6 +1,6 @@
 /* Estilo para a aplicação F1 Best Drivers */
 .root {
-    -fx-background-image: url("https://64.media.tumblr.com/f13ce570ca1498bb37fdc4075d6b3f23/66b4306fe2fe3f02-b0/s1280x1920/cba9214704d23d9f194fd50d43847e431c5c8945.jpg");
+    -fx-background-image: url("https://www.f1authentics.com/cdn/shop/products/DSC09904.jpg?v=1677237422&width=1000");
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover;
@@ -24,7 +24,7 @@
 /* Estilo para as células da TableView */
 .table-cell {
     -fx-border-color: #ff2800; /* Vermelho */
-    -fx-border-width: 0.5px;
+    -fx-border-width: 0.1px;
 }
 
 /* Estilo para os elementos do BarChart */
@@ -37,18 +37,12 @@
     -fx-stroke: #ff260025; /* Vermelho */
 }
 
-/* Estilo para as bordas do gráfico */
-.chart-vertical-grid-lines,
-.chart-horizontal-grid-lines {
-    -fx-stroke: #000000; /* Preto */
-}
-
 /* Estilo para as legendas do gráfico */
 .chart-legend {
-    -fx-background-color: #ffffff; /* Branco */
+    -fx-background-color: #000000; /* Preto */
 }
 
-/* Estilo para os rótulos dos eixos X e Y do gráfico */
-.chart-axis {
-    -fx-tick-label-fill: #000000; /* Preto */
+/* Estilo para os elementos do BarChart */
+#transparentChart .chart {
+    -fx-background-color: transparent; /* Transparente */
 }

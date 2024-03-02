@@ -23,7 +23,7 @@
     <!-- StackPane for BarChart and TableView -->
     <StackPane>
         <!-- BarChart -->
-        <BarChart fx:id="barChart" prefWidth="600" prefHeight="400" visible="false">
+        <BarChart fx:id="barChart" id="transparentChart" prefWidth="600" prefHeight="400" visible="false">
             <xAxis>
                 <CategoryAxis fx:id="xAxis"/>
             </xAxis>
