@@ -32,7 +32,7 @@ public class App extends Application {
             stage.setTitle("F1 Best Drivers Application");
 
             // Set the application icon
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("/resources/icon.png")));
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/css/icon.png")));
 
             // Show the stage
             stage.show();
