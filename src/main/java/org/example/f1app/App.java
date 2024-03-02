@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -29,6 +30,11 @@ public class App extends Application {
             // Set the scene to the stage
             stage.setScene(scene);
             stage.setTitle("F1 Best Drivers Application");
+
+            // Set the application icon
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/resources/icon.png")));
+
+            // Show the stage
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

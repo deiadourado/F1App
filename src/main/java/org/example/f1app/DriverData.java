@@ -5,12 +5,12 @@ import javafx.beans.property.*;
 public class DriverData {
     private String driver;
     private int worldChampionships;
-    private int numberRaces;
-    private int numberWins;
-    private int polePositions;
+    private double numberRaces;
+    private double numberWins;
+    private double polePositions;
     private double careerPoints;
 
-    public DriverData(String driver, int worldChampionships, int numberRaces, int numberWins, int polePositions, double careerPoints) {
+    public DriverData(String driver, int worldChampionships, double numberRaces, double numberWins, double polePositions, double careerPoints) {
         this.driver = driver;
         this.worldChampionships = worldChampionships;
         this.numberRaces = numberRaces;
@@ -35,27 +35,27 @@ public class DriverData {
         this.worldChampionships = worldChampionships;
     }
 
-    public int getNumberRaces() {
+    public double getNumberRaces() {
         return numberRaces;
     }
 
-    public void setNumberRaces(int numberRaces) {
+    public void setNumberRaces(double numberRaces) {
         this.numberRaces = numberRaces;
     }
 
-    public int getNumberWins() {
+    public double getNumberWins() {
         return numberWins;
     }
 
-    public void setNumberWins(int numberWins) {
+    public void setNumberWins(double numberWins) {
         this.numberWins = numberWins;
     }
 
-    public int getPolePositions() {
+    public double getPolePositions() {
         return polePositions;
     }
 
-    public void setPolePositions(int polePositions) {
+    public void setPolePositions(double polePositions) {
         this.polePositions = polePositions;
     }
 

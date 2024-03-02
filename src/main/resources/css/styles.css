@@ -7,14 +7,6 @@
     -fx-width:100%;
 }
 
-/* Estilo para o título da aplicação */
-#title {
-    -fx-font-size: 24px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #ff2800; /* Vermelho */
-    -fx-padding: 20px;
-}
-
 /* Estilo para os elementos da TableView */
 .table-view {
     -fx-background-color: #00000000; /* Preto */

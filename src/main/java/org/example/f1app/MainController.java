@@ -38,6 +38,7 @@ public class MainController {
         showChart(); // Exibir gráfico por padrão ao iniciar
     }
 
+    @SuppressWarnings("unchecked")
     private void configureTableView() {
         TableColumn<DriverData, String> driverColumn = new TableColumn<>("Driver");
         driverColumn.setCellValueFactory(new PropertyValueFactory<>("driver"));
@@ -45,13 +46,13 @@ public class MainController {
         TableColumn<DriverData, Integer> worldChampionshipsColumn = new TableColumn<>("World Championships");
         worldChampionshipsColumn.setCellValueFactory(new PropertyValueFactory<>("worldChampionships"));
 
-        TableColumn<DriverData, Integer> numberRacesColumn = new TableColumn<>("Number of Races");
+        TableColumn<DriverData, Double> numberRacesColumn = new TableColumn<>("Number of Races");
         numberRacesColumn.setCellValueFactory(new PropertyValueFactory<>("numberRaces"));
 
-        TableColumn<DriverData, Integer> numberWinsColumn = new TableColumn<>("Number of Wins");
+        TableColumn<DriverData, Double> numberWinsColumn = new TableColumn<>("Number of Wins");
         numberWinsColumn.setCellValueFactory(new PropertyValueFactory<>("numberWins"));
 
-        TableColumn<DriverData, Integer> polePositionsColumn = new TableColumn<>("Pole Positions");
+        TableColumn<DriverData, Double> polePositionsColumn = new TableColumn<>("Pole Positions");
         polePositionsColumn.setCellValueFactory(new PropertyValueFactory<>("polePositions"));
 
         TableColumn<DriverData, Double> careerPointsColumn = new TableColumn<>("Career Points");
@@ -70,10 +71,10 @@ public class MainController {
             List<DriverData> dataList = new ArrayList<>();
             while (resultSet.next()) {
                 String driver = resultSet.getString("driver");
-                int numberWins = resultSet.getInt("numberWins");
+                double numberWins = resultSet.getDouble("numberWins");
                 int worldChampionships = resultSet.getInt("worldChampionships");
-                int numberRaces = resultSet.getInt("numberRaces");
-                int polePositions = resultSet.getInt("polePositions");
+                double numberRaces = resultSet.getDouble("numberRaces");
+                double polePositions = resultSet.getDouble("polePositions");
                 double careerPoints = resultSet.getDouble("careerPoints");
 
                 dataList.add(new DriverData(driver, worldChampionships, numberRaces, numberWins, polePositions, careerPoints));
@@ -89,8 +90,8 @@ public class MainController {
         ObservableList<String> options =
                 FXCollections.observableArrayList(
                         "World Championships",
-                        "Number of Races",
-                        "Number of Wins",
+                        "Number Races",
+                        "Number Wins",
                         "Pole Positions",
                         "Career Points"
                 );
