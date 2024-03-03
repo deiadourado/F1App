@@ -41,7 +41,7 @@ public class App extends Application {
         }
     }
 
-    // The main method to launch the application
+    // The main method to launch. the application
     public static void main(String[] args) {
         launch(args); // Launches the JavaFX application
     }
