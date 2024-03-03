@@ -35,11 +35,13 @@ public class MainController {
         configureTableView();
         configureComboBox();
         populateTableView();
-        showChart(); // Exibir gráfico por padrão ao iniciar
+        populateChartData(); // Populating the chart on initialization
+        showChart(); // Display the chart by default on initialization
     }
 
     @SuppressWarnings("unchecked")
     private void configureTableView() {
+        // Configuring the TableView with columns
         TableColumn<DriverData, String> driverColumn = new TableColumn<>("Driver");
         driverColumn.setCellValueFactory(new PropertyValueFactory<>("driver"));
 
@@ -58,10 +60,12 @@ public class MainController {
         TableColumn<DriverData, Double> careerPointsColumn = new TableColumn<>("Career Points");
         careerPointsColumn.setCellValueFactory(new PropertyValueFactory<>("careerPoints"));
 
+        // Adding columns to the TableView
         tableView.getColumns().addAll(driverColumn, worldChampionshipsColumn, numberRacesColumn, numberWinsColumn, polePositionsColumn, careerPointsColumn);
     }
 
     private void populateTableView() {
+        // Populating the TableView with data from the database
         tableView.getItems().clear();
 
         try (Connection connection = DatabaseController.getConnection();
@@ -87,6 +91,7 @@ public class MainController {
     }
 
     private void configureComboBox() {
+        // Configuring the ComboBox with data options
         ObservableList<String> options =
                 FXCollections.observableArrayList(
                         "World Championships",
@@ -96,7 +101,7 @@ public class MainController {
                         "Career Points"
                 );
         dataSelectionComboBox.setItems(options);
-        dataSelectionComboBox.setValue("World Championships"); // Definir valor padrão
+        dataSelectionComboBox.setValue("World Championships"); // Set default value
         dataSelectionComboBox.setOnAction(event -> {
             populateChartData();
             handleDataSelection();
@@ -104,10 +109,11 @@ public class MainController {
     }
 
     private void populateChartData() {
+        // Populating the BarChart with data based on user-selected category
         barChart.getData().clear();
 
         String selectedData = dataSelectionComboBox.getValue();
-        String columnName = selectedData.toLowerCase().replace(" ", ""); // Remova espaços e converta para minúsculas
+        String columnName = selectedData.toLowerCase().replace(" ", ""); // Remove spaces and convert to lowercase
 
         String query = "SELECT driver, " + columnName + " FROM BestDrivers";
 
@@ -132,19 +138,21 @@ public class MainController {
 
     @FXML
     public void showTable() {
+        // Switching visibility to TableView
         tableView.setVisible(true);
         barChart.setVisible(false);
     }
 
     @FXML
     public void showChart() {
+        // Switching visibility to BarChart
         tableView.setVisible(false);
         barChart.setVisible(true);
     }
 
     @FXML
     public void handleDataSelection() {
-        // Seu código para lidar com a seleção de dados aqui
+        // Code to handle data selection here
         String selectedData = dataSelectionComboBox.getValue();
         System.out.println("Selected data: " + selectedData);
     }

@@ -1,4 +1,4 @@
-/* Estilo para a aplicação F1 Best Drivers */
+/* Style for the F1 Best Drivers application */
 .root {
     -fx-background-image: url("https://www.f1authentics.com/cdn/shop/products/DSC09904.jpg?v=1677237422&width=1000");
     -fx-background-repeat: no-repeat;
@@ -7,34 +7,64 @@
     -fx-width:100%;
 }
 
-/* Estilo para os elementos da TableView */
+/* Style for buttons */
+.button {
+    -fx-background-color: #ff2600; /* Red background color */
+    -fx-text-fill: white; /* Text color */
+    -fx-font-size: 14px; /* Font size */
+    -fx-font-family: "Arial"; /* Font family */
+    -fx-padding: 8px 16px; /* Internal padding */
+    -fx-border-radius: 20px; /* Corner radius */
+    -fx-background-radius: 20px; /* Corner radius */
+}
+
+/* Style for TableView elements */
 .table-view {
-    -fx-background-color: #00000000; /* Preto */
-    -fx-text-fill: #ffffff; /* Branco */
+    -fx-background-color: #ffffff; /* White background color */
+    -fx-text-fill: #000000; /* Black text color */
+    -fx-alignment: center; /* Center the content of the table */
+    -fx-padding: 0; /* Remove internal padding */
 }
 
-/* Estilo para as células da TableView */
+/* Style for TableView cells */
 .table-cell {
-    -fx-border-color: #ff2800; /* Vermelho */
-    -fx-border-width: 0.1px;
+    -fx-border-color: #ff2800; /* Red border color */
+    -fx-border-width: 1.0px; /* Border width */
 }
 
-/* Estilo para os elementos do BarChart */
+/* Style for BarChart elements */
 .chart {
-    -fx-background-color: transparent; /* Transparente */
+    -fx-background-color: transparent; /* Transparent */
 }
 
-/* Estilo para as linhas do gráfico */
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+/* Style for chart lines */
 .chart-series-line {
-    -fx-stroke: #ff260025; /* Vermelho */
+    -fx-stroke: #ff2600; /* Red line color */
 }
 
-/* Estilo para as legendas do gráfico */
+/* Style for chart legends */
 .chart-legend {
-    -fx-background-color: #000000; /* Preto */
+    -fx-background-color: #ffffff; /* White background color */
+    -fx-font-size: 20px; /* Font size */
+    -fx-font-weight: bold;
 }
 
-/* Estilo para os elementos do BarChart */
-#transparentChart .chart {
-    -fx-background-color: transparent; /* Transparente */
+.axis {
+    -fx-font-size: 2.4em;    
+    -fx-tick-label-fill: #ff2600;
+    -fx-font-family: Tahoma;
+    -fx-tick-length: 20;
+    -fx-minor-tick-length: 10;
+    -fx-font-weight: bold;
+}
+
+/* Style for X and Y axis labels of the chart */
+.chart-axis {
+    -fx-tick-label-fill: #ff2600; /* text color */
+    -fx-font-weight: bold; /* Torna o texto em negrito */
+    -fx-font-size: 14px;
 }

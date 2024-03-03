@@ -12,7 +12,7 @@ import java.io.IOException;
 public class App extends Application {
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
         try {
             // Load the FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
@@ -24,7 +24,7 @@ public class App extends Application {
             // Create a new scene
             Scene scene = new Scene(root);
 
-            // Load the CSS file
+            // Load the CSS file to style the scene
             scene.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
 
             // Set the scene to the stage
@@ -34,14 +34,15 @@ public class App extends Application {
             // Set the application icon
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/css/icon.png")));
 
-            // Show the stage
+            // Show the stage to display the application
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Print the stack trace if an IO exception occurs during loading
         }
     }
 
+    // The main method to launch the application
     public static void main(String[] args) {
-        launch(args);
+        launch(args); // Launches the JavaFX application
     }
 }
